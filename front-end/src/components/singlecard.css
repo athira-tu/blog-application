@@ -1,0 +1,22 @@
+.singlecard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 180px;
+    margin-top: 150px;
+}
+
+
+#commentarea{
+ color: white;
+ width: 900px;
+ height: 50px;
+ border-radius: 20px;
+ margin-left: 120px;
+}
+
+.addcommentbtn{
+    width: 100px;
+    margin-top: 20px;
+}

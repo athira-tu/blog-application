@@ -6,6 +6,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { sortblog } from './api';
 import './card.css'
 import Navbar from './Navbar';
+import './sortblog.css'
 
 
 function Sortblog() {
@@ -41,18 +42,16 @@ function Sortblog() {
                     sortblogs && sortblogs.map((c) => {
                         console.log(c);
                         return (
-                            // <div className='card'>
-                            //     <h1>{c.category}</h1>
-                            // </div>
+                           
 
                             <div>
                                 <div className='allcard'>
                                     <div className='cardhead'>
                                         <h2 className='all'>{c.title}</h2>
                                     </div>
-                                    <h3>{c.description}</h3>
-                                    <h3>{c.category}</h3>
-                                    <h6>{c.authorname}</h6>
+                                    <h3 className='color'>{c.description}</h3>
+                                    <h3 className='color'>{c.category}</h3>
+                                    <h6 className='color'>{c.authorname}</h6>
 
 
 

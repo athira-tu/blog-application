@@ -8,6 +8,8 @@ import { UserContext } from './context/UserContext'
 import { useRef } from 'react'
 import Comments from './comments'
 import { authblogs } from './api'
+import "./singlecard.css"
+import Navbar from './Navbar'
 
 function SingleCard(blogmap) {
     const { id } = useParams()
@@ -50,7 +52,7 @@ function SingleCard(blogmap) {
                 authorid: loggedinuser._id,
                 blogid: id,
 
-                dateposted: new Date()
+                dateposted: new Date().toDateString()
             }
             let response = await axios.post(postcomment, commentobj)
             setRefresh(!refresh)
@@ -86,10 +88,27 @@ function SingleCard(blogmap) {
 
     return (
         <>
-            <h1>{oneblog.title}</h1>
-            {/* <button onClick={readAuthorAllBlog}>Read All Blogs of {location.state.singleblog.authorname}</button> */}
-            <textarea name="" id="" cols="30" rows="10" placeholder='comments' ref={commentref}></textarea>
-            <button onClick={addcomment}>post</button>
+            
+        <Navbar />
+      <div className="singlecard">
+
+            <div className='allcard'>
+        <div className='cardhead'>
+            <h2 className='all'>{oneblog.title}</h2>
+            <div className="details">
+        <h3 className='desc'>{oneblog.authorname} </h3>
+        <h6 className='desc'>{new Date().toDateString()}</h6><br />
+        <span>
+        <h6 className='desc'>{oneblog.category}</h6>
+        </span>
+        </div>
+        </div>
+        <p className='descr'>{oneblog.description}</p>
+    </div >
+
+           
+            <textarea name="comment" id="commentarea" cols="30" rows="10" placeholder='comments' ref={commentref}></textarea>
+            <button onClick={addcomment} className='addcommentbtn'>POST</button>
 
             <div>
                 {blogcomment && blogcomment.map((com) => {
@@ -97,6 +116,7 @@ function SingleCard(blogmap) {
                         <Comments commentmap={com} />
                     )
                 })}
+            </div>
             </div>
         </>
     )

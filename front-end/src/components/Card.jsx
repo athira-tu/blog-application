@@ -3,6 +3,10 @@ import { useContext } from 'react';
 // import { deletetask } from '../../API/Api'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from './context/UserContext';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import FolderSharedIcon from '@mui/icons-material/FolderShared';
+
 import './card.css'
 // import axios from 'axios'
 
@@ -24,11 +28,27 @@ function Card({ blogmap }) {
             <div className='allcard'>
                 <div className='cardhead'>
                     <h2 className='all'>{blogmap.title}</h2>
+                    <div className="details">
+                <h3 className='desc'>{blogmap.authorname} </h3>
+                <h6 className='desc'>{new Date().toDateString()}</h6><br />
+                <span>
+                <h6 className='desc'>{blogmap.category}</h6>
+                </span>
                 </div>
-                <h3>{blogmap.description}<Link to={`/singleblog/${blogmap._id}`}>read more...</Link></h3>
-                <h3>{blogmap.category}</h3>
-                <h6>{blogmap.authorname}</h6>
-                <button onClick={viewauthorblog}>view author blogs</button>
+                </div>
+                <p className='descr'>{blogmap.description}<Link to={`/singleblog/${blogmap._id}`}>read more...</Link></p>
+
+                <div className="buttons">
+
+                    <ThumbUpAltIcon className='btns like'/>
+                    <ThumbDownIcon className='btns dislike'/>
+                    <FolderSharedIcon className='btns folder' onClick={viewauthorblog}/>
+    
+                </div>
+                
+
+
+                
 
 
 

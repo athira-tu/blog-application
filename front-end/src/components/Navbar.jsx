@@ -35,7 +35,7 @@ function Navbar() {
                 <a href="/">Home</a>
                 <a href="#">About</a>
                 <a href="#">Resources</a>
-                <a href="#">Contact</a>
+                <a href="/viewauthorblog">Author Blog</a>
                 <a href="/addblog">Add-blog</a>
                 <a href="/signup">signup</a>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>

@@ -1,6 +1,6 @@
 import React from 'react'
 // import { deletetask } from '../../API/Api'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { Deleteblog } from './api'
 import './authorcard.css'
@@ -21,24 +21,34 @@ function Authorcard({ blogmap }) {
     console.log(blogmap);
     return (
         <>
-            <div className='authorcard'>
-                <div className='acardhead'>
-                    <h2 className='auth'>{blogmap.title}</h2>
-                </div>
-                <h3>{blogmap.description}</h3>
-                <h3>{blogmap.category}</h3>
+           <div className='allcard'>
+        <div className='cardhead'>
+            <h2 className='all'>{blogmap.title}</h2>
+            <div className="details">
+        <h3 className='desc'>{blogmap.authorname} </h3>
+        <h6 className='desc'>{new Date().toDateString()}</h6><br />
+        <span>
+        <h6 className='desc'>{blogmap.category}</h6>
+        </span>
+        </div>
+        </div>
+        <p className='descr'>{blogmap.description}<Link to={`/singleblog/${blogmap._id}`}>read more...</Link></p>
 
-                <hr />
-                <div className='auttons'>
+        <div className="buttons">
+
+            <DeleteSharpIcon className='btns like' onClick={del}/>
+            <EditIcon className='btns dislike' onClick={blogedit}/>
+          
+
+        </div>
+        
 
 
-                    {/* <button onClick={del}>delete1</button> */}
-                    <DeleteSharpIcon onClick={del} />
-                    <EditIcon onClick={blogedit} />
-                    {/* <button onClick={blogedit}>edit</button> */}
+        
 
-                </div>
-            </div>
+
+
+    </div >
         </>
     )
 }

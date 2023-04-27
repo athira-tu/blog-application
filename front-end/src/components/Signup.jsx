@@ -41,6 +41,7 @@ function Signup() {
 
     return (
         <>
+        
             <div >
                 <div className='signupimg'>
                     <Box id="container" className="card shadow">
